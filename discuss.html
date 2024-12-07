@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
@@ -225,6 +228,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -232,6 +298,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -261,7 +337,10 @@ $(document).ready(function () {
   <a href="discuss.html">Discussion</a>
 </li>
 <li>
-  <a href="dashboard.html">Dashboard</a>
+  <a href="dashboard.html">Political Maps</a>
+</li>
+<li>
+  <a href="dashboard_health.html">Health Maps</a>
 </li>
 <li>
   <a href="FinalReport.html">Report</a>
@@ -294,10 +373,187 @@ $(document).ready(function () {
 </div>
 
 
-<p>…</p>
+<div id="national-trends-from-election-results" class="section level3">
+<h3>National Trends from Election Results</h3>
+<p>From our preliminary analysis of the 2012–2016 election data, we
+observed several key trends in the political landscape across U.S.
+counties:</p>
+<ol style="list-style-type: decimal">
+<li><p>Republican Dominance: More counties have the Republican Party as
+the majority party compared to those with a Democratic majority. As
+shown in Figure 1, Republican-leaning counties dominate the U.S.
+geography, particularly in the Midwest and South. This trend is
+consistent with historical voting patterns, where these regions have
+traditionally favored the Republican Party.</p></li>
+<li><p>Strong Republican Support: In addition to a larger number of
+Republican-majority counties, there is a higher concentration of
+counties with strong Republican support compared to Democratic counties,
+which tend to be more evenly split or less firmly aligned with the
+Democratic Party.</p></li>
+<li><p>Shift Toward Republicanism: Comparing the 2012 and 2016 data, we
+observed that the proportion of Democratic-leaning counties decreased.
+This suggests a general shift towards the Republican Party across more
+counties over the four-year period.</p></li>
+</ol>
+<p>There are regional factors that may explain these trends. The Midwest
+and South have long been strongholds for the Republican Party. Changes
+in economic conditions, cultural shifts, or issues like immigration and
+healthcare may have further entrenched this political divide. Areas that
+experienced economic hardship, such as the decline of manufacturing in
+certain regions, might have shifted politically towards the Republican
+Party due to its promises of job creation and protectionism.
+Furthermore, there could be a broader realignment of voters based on
+issues like race, education, and income, which have become more
+pronounced in recent elections. These trends align with findings from
+other studies that suggest a growing rural-urban divide, where rural
+areas have increasingly supported Republicans, while urban areas have
+leaned Democratic.</p>
+</div>
+<div id="health-metrics-and-election-results" class="section level3">
+<h3>Health Metrics and Election Results</h3>
+<p>We examined several key health metrics at the county level to explore
+whether they correlate with political views. The health metrics analyzed
+include the number of physicians, premature death rates, preventable
+hospital stays, and flu vaccination rates. Initial analysis revealed no
+definitive relationship between the health metrics (physicians,
+premature death, preventable hospital stays, and flu vaccinations) and
+the political outcomes across all counties. This suggests that these
+health metrics alone do not directly predict political behavior at the
+county level. A plot comparing premature death and preventable hospital
+stays showed a positive relationship, meaning that counties with higher
+rates of premature death also tended to have higher rates of preventable
+hospital stays. This could indicate that areas with poor health outcomes
+face systemic issues related to healthcare access or quality.</p>
+<p>When examining health metrics by political party, we found that
+counties with more physicians tended to lean Republican. This may seem
+counterintuitive at first, but it could be explained by the fact that
+counties with more physicians might also have wealthier or more urban
+populations, which tend to lean Republican. Similarly, counties with
+higher rates of premature death also tended to have a stronger
+Republican vote share. This might be linked to regions facing economic
+hardship or healthcare challenges, which often vote Republican in search
+of policies to address these issues.</p>
+</div>
+<div id="regression-analysis" class="section level3">
+<h3>Regression Analysis</h3>
+<p>To better understand the relationships between health metrics and
+political preferences, we conducted a regression analysis using
+covariates such as premature death, number of physicians, preventable
+hospital stays, and flu vaccinations to predict the percentage of
+Republican votes in each county.</p>
+<ul>
+<li><p>Premature Death: For every 1 standard deviation increase in
+premature deaths, the Republican vote share increased by 0.025% (p &lt;
+0.005). Counties with higher premature death rates might face higher
+levels of economic distress, which could drive voters to support the
+Republican Party in hopes of economic recovery and healthcare
+reforms.</p></li>
+<li><p>Number of Physicians: For every 1 standard deviation increase in
+the number of physicians, the Republican vote share increased by 0.078%
+(p &lt; 0.005). Wealthier, more urban counties with better healthcare
+access (i.e., more physicians) may lean Republican due to broader
+political and socioeconomic factors in these areas.</p></li>
+<li><p>Flu Vaccinations: Interestingly, for every 1 standard deviation
+increase in flu vaccinations, the Republican vote share decreased by
+0.016% (p &lt; 0.005). The negative correlation between flu vaccinations
+and Republican vote share may reflect demographic differences, where
+counties with higher vaccination rates could be more urban and
+liberal-leaning, or it could reflect regional differences in attitudes
+towards healthcare policies.</p></li>
+</ul>
+<p>To assess the overall strength of the correlation, we calculated the
+regression coefficients for the percentage of Republican votes in
+counties. The overall U.S. dataset had an R-squared value of 0.125,
+indicating significant variation in the data. This suggests that while
+health metrics have some impact, they do not fully explain the variation
+in voting behavior. When we stratified the data by election years (2012
+and 2016), we found that the variations remained large, suggesting that
+the relationship between health metrics and political views is not
+constant over time. Focusing specifically on New York counties, we
+observed a higher R-squared value of 0.387. This indicates that there is
+less variation in the data for New York counties compared to the overall
+U.S. dataset. This was expected, as New York has a more homogenous
+population with fewer extreme rural-urban divides than the national
+data, leading to a stronger correlation between health outcomes and
+voting behavior.</p>
+</div>
+<div id="political-trends-in-new-york-from-2012-to-2016"
+class="section level3">
+<h3>Political trends in New York from 2012 to 2016</h3>
+<p>Our analysis of political trends in New York from 2012 to 2016
+revealed several key patterns:</p>
+<ol style="list-style-type: decimal">
+<li><p>We found that more counties in New York had a Republican majority
+compared to those with a Democratic majority. The majority of the
+state’s geography leans Republican, particularly in suburban and rural
+areas, while urban centers, especially New York City, remain solidly
+Democratic.</p></li>
+<li><p>There are more counties with strong Republican support compared
+to Democratic counties, which tend to show more moderate or less
+strongly-aligned voting patterns. This suggests a geographical divide
+between strongly Republican and less strongly Democratic areas in New
+York.</p></li>
+<li><p>From 2012 to 2016, many counties in New York became more
+Republican-leaning. However, the New York City metropolitan area
+remained a stronghold for the Democratic Party, showing no significant
+change in its political alignment.</p></li>
+</ol>
+<p>The trend of Republican-leaning counties outside New York City and
+the strong Democratic support within the city can be attributed to the
+urban-rural divide. Urban areas, like New York City, tend to vote
+Democratic due to factors like higher diversity, younger populations,
+and progressive policies. In contrast, rural areas have more
+conservative views and lean toward the Republican Party, driven by
+different economic priorities and social values.</p>
+<p>Rural counties in New York, facing economic challenges such as the
+decline of manufacturing and agricultural sectors, may be shifting
+toward the Republican Party, which has focused on policies that promise
+economic revival. New York City, however, remains more Democratic due to
+its larger, more diverse population with a greater emphasis on social
+services and progressive economic policies. The shift in New York’s
+counties toward the Republican Party mirrors broader national trends
+where rural areas have moved rightward while urban areas have become
+more liberal. Similar patterns are seen in other studies, such as the
+growing rural-urban divide that has been a defining feature of recent
+U.S. elections.</p>
+</div>
+<div id="health-metrics-in-new-york-20122016" class="section level3">
+<h3>Health Metrics in New York (2012–2016)</h3>
+<p>Our analysis of health metrics in New York from 2012 to 2016 revealed
+some interesting patterns across counties:</p>
+<ol style="list-style-type: decimal">
+<li><p>More counties in New York showed higher rates of premature deaths
+and a higher number of physicians. These trends indicate that certain
+regions of the state may be facing healthcare challenges or have greater
+access to healthcare providers.</p></li>
+<li><p>In contrast, we found that some counties had lower rates of
+preventable hospital stays and flu vaccinations. This suggests that
+while some counties may have a greater concentration of healthcare
+professionals, they might still face barriers to accessing preventative
+care, including vaccinations and avoidable hospitalizations</p></li>
+</ol>
+<p>Certain counties in upstate New York, particularly in rural areas,
+have higher rates of premature deaths, which could be linked to factors
+such as poor access to healthcare, economic hardship, and lifestyle
+factors like smoking and diet. Counties with higher availability tend to
+be wealthier or urbanized, such as in parts of Long Island and the
+Hudson Valley. These areas may have more healthcare infrastructure, but
+they also tend to vote Republican, suggesting a complex relationship
+between healthcare access and political preferences. We observed that
+some counties with high physician availability still had low rates of
+preventable hospital stays, which may indicate good primary care access
+or effective health interventions. Conversely, some counties had low flu
+vaccination rates, possibly due to less health outreach or resistance to
+vaccinations, which could vary depending on local attitudes or
+healthcare policies. Rural areas or regions with less health education
+may have lower vaccination rates, which can increase the risk of
+preventable illnesses.</p>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -335,6 +591,35 @@ $(document).ready(function () {
 });
 </script>
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

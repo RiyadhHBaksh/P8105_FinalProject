@@ -91,13 +91,11 @@ county_data =
   health_election_with_na |>
   filter(year==2012) |>
   right_join(counties,by="county_fips") |>
-  filter(state_name!="Alaska" & state_name!="Hawaii")
+  filter(state_name=="New York")
 
 premature_death_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = premature_death)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(premature_death,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -115,8 +113,6 @@ ggplotly(premature_death_plot, tooltip="text")
 physicians_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = physicians)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(physicians,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -134,8 +130,6 @@ ggplotly(physicians_plot, tooltip="text")
 hospital_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = preventable_hospital_stays)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(preventable_hospital_stays,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -153,8 +147,6 @@ ggplotly(hospital_plot, tooltip="text")
 vacc_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = flu_vaccinations)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(flu_vaccinations,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -182,13 +174,11 @@ county_data =
   health_election_with_na |>
   filter(year==2016) |>
   right_join(counties,by="county_fips") |>
-  filter(state_name!="Alaska" & state_name!="Hawaii")
+  filter(state_name=="New York")
 
 premature_death_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = premature_death)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(premature_death,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -206,8 +196,6 @@ ggplotly(premature_death_plot, tooltip="text")
 physicians_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = physicians)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(physicians,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -225,8 +213,6 @@ ggplotly(physicians_plot, tooltip="text")
 hospital_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = preventable_hospital_stays)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(preventable_hospital_stays,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
@@ -244,8 +230,6 @@ ggplotly(hospital_plot, tooltip="text")
 vacc_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = flu_vaccinations)) +
-  geom_polygon(data = states, mapping = aes(long, lat, group = group,text=state_name),
-               fill = NA, color = "#ffffff") +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(flu_vaccinations,2),sep=""))) +
   scale_fill_gradient(guide = "colourbar") +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +

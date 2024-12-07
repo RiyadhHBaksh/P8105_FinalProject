@@ -20,4 +20,7 @@ navbar:
 output:
   html_document:
     code_folding: hide
-    theme: cerulean
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+theme: lumen
