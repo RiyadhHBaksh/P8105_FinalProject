@@ -1,5 +1,5 @@
 ---
-title: "Health Dashboard"
+title: "2012 Health Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -78,7 +78,7 @@ health_election_with_na = health_election
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### 2012 Premature Deaths
+### Premature Deaths
 
 ```{r}
 #devtools::install_github("UrbanInstitute/urbnmapr")
@@ -97,7 +97,8 @@ premature_death_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = premature_death)) +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(premature_death,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
+  scale_fill_gradient(guide = "colourbar",
+                      limits=c(-1.8,0.3)) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
   theme(legend.title = element_text(),
         legend.key.width = unit(.5, "in")) +
@@ -107,14 +108,15 @@ county_data |>
 ggplotly(premature_death_plot, tooltip="text")
 ```
 
-### 2012 Physicians
+### Physicians
 
 ```{r}
 physicians_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = physicians)) +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(physicians,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
+  scale_fill_gradient(guide = "colourbar",
+                      limits=c(-0.9,4.9)) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
   theme(legend.title = element_text(),
         legend.key.width = unit(.5, "in")) +
@@ -124,97 +126,19 @@ county_data |>
 ggplotly(physicians_plot, tooltip="text")
 ```
 
-### 2012 Preventable Hospital Stays
-
-```{r}
-hospital_plot =
-county_data |>
-  ggplot(aes(long, lat, group = group, fill = preventable_hospital_stays)) +
-  geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(preventable_hospital_stays,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
-  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  theme(legend.title = element_text(),
-        legend.key.width = unit(.5, "in")) +
-  labs(fill = "preventable_hospital_stays") +
-  theme_urbn_map()
-
-ggplotly(hospital_plot, tooltip="text")
-```
-
-### 2012 Flu Vaccinations
-
-```{r}
-vacc_plot =
-county_data |>
-  ggplot(aes(long, lat, group = group, fill = flu_vaccinations)) +
-  geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(flu_vaccinations,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
-  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  theme(legend.title = element_text(),
-        legend.key.width = unit(.5, "in")) +
-  labs(fill = "flu_vaccinations") +
-  theme_urbn_map()
-
-ggplotly(vacc_plot, tooltip="text")
-```
 
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### 2016 Premature Deaths
-
-```{r}
-#devtools::install_github("UrbanInstitute/urbnmapr")
-#remotes::install_github("UrbanInstitute/urbnthemes",build_vignettes = TRUE)
-library(urbnmapr)
-library(urbnthemes)
-library(plotly)
-
-county_data =
-  health_election_with_na |>
-  filter(year==2016) |>
-  right_join(counties,by="county_fips") |>
-  filter(state_name=="New York")
-
-premature_death_plot =
-county_data |>
-  ggplot(aes(long, lat, group = group, fill = premature_death)) +
-  geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(premature_death,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
-  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  theme(legend.title = element_text(),
-        legend.key.width = unit(.5, "in")) +
-  labs(fill = "premature_death") +
-  theme_urbn_map()
-
-ggplotly(premature_death_plot, tooltip="text")
-```
-
-### 2016 Physicians
-
-```{r}
-physicians_plot =
-county_data |>
-  ggplot(aes(long, lat, group = group, fill = physicians)) +
-  geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(physicians,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
-  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  theme(legend.title = element_text(),
-        legend.key.width = unit(.5, "in")) +
-  labs(fill = "physicians") +
-  theme_urbn_map()
-
-ggplotly(physicians_plot, tooltip="text")
-```
-
-### 2016 Preventable Hospital Stays
+### Preventable Hospital Stays
 
 ```{r}
 hospital_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = preventable_hospital_stays)) +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(preventable_hospital_stays,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
+  scale_fill_gradient(guide = "colourbar",
+                      limits=c(-1.1,1.8)) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
   theme(legend.title = element_text(),
         legend.key.width = unit(.5, "in")) +
@@ -224,14 +148,15 @@ county_data |>
 ggplotly(hospital_plot, tooltip="text")
 ```
 
-### 2016 Flu Vaccinations
+### Flu Vaccinations
 
 ```{r}
 vacc_plot =
 county_data |>
   ggplot(aes(long, lat, group = group, fill = flu_vaccinations)) +
   geom_polygon(color = NA, aes(text=paste(county_name.y,", ",state_abbv,": ", round(flu_vaccinations,2),sep=""))) +
-  scale_fill_gradient(guide = "colourbar") +
+  scale_fill_gradient(guide = "colourbar",
+                      limits=c(-1,1.4)) +
   coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
   theme(legend.title = element_text(),
         legend.key.width = unit(.5, "in")) +
@@ -240,3 +165,4 @@ county_data |>
 
 ggplotly(vacc_plot, tooltip="text")
 ```
+

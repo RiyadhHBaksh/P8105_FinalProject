@@ -11,8 +11,10 @@ navbar:
       href: discuss.html
     - text: "Political Maps"
       href: dashboard.html
-    - text: "Health Maps"
+    - text: "2012 Health Maps"
       href: dashboard_health.html
+    - text: "2016 Health Maps"
+      href: dashboard_health2.html
     - text: "Report"
       href: FinalReport.html
     - icon: fa-github fa-lg
