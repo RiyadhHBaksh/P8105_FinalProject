@@ -1,6 +1,11 @@
 ---
 title: "Connecting Political Views with Health Metrics"
 ---
+Group Members: Riyadh Baksh (rhb2152), Anika Mitchell (am5088), Jeong Yun Yang (jy3306)
+
+### Screencast
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6J1fhJA_V6I?si=_eKK5bMcovXO7682" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Motivation
 
